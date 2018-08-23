@@ -1,0 +1,29 @@
+{% extends "base.html" %} 
+{% block content %}
+<div class="container login-page-form">
+    <form id="wbs-form" action="/wbs/add" method="post">
+        <h1>Add New WBS Code</h1>
+        <div class="form-group">
+            <label for="company">Company</label>
+            <input type="text" id="company" class="form-control" name="company" placeholder="{{ company }}" readonly>
+        </div>
+        <div class="form-group">
+            <label for="businessunit">Business Unit</label>
+            <input type="text" id="businessunit" class="form-control" name="businessunit">
+        </div>
+        <div class="form-group">
+            <label for="project">Project</label>
+            <input type="text" id="project" class="form-control" name="project">
+        </div>
+        <div class="form-group">
+            <label for="wbs">WBS Code</label>
+            <input type="text" id="wbs" class="form-control"  name="wbs">
+        </div>
+        <div class="form-group">
+            <label for="owner">Owner</label>
+            <input type="text" id="owner" class="form-control"  name="owner">
+        </div>        
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}

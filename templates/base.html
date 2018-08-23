@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Nebula WBS Importer</title>
+            <!-- Required meta tags -->
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            
+            <!-- Bootstrap CSS -->
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+                crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}"/>
+
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+                crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+                crossorigin="anonymous"></script>
+            
+            <!-- Navigation Bar -->    
+            <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#000000;">
+                <a class="navbar-brand" href="/profile">
+                    <img src="/static/assets/dxc.png" width="250" height="50" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/wbs/add" >Add a New WBS Code</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/wbs/list">List WBS Codes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/wbs/export">Export WBS Codes</a>
+                        </li>
+                    </ul>   
+                        <form class="form-inline my-2 my-lg-0">
+                            <a href="/" class="btn btn-outline-danger my-2 my-sm-0" role="button">Logout</button></a>
+                        </form>
+                </div>
+            </nav>
+    </head>
+    {% with messages = get_flashed_messages() %} 
+    {% if messages %}
+    <!--   <ul class=flashes> -->
+        {% for message in messages %}
+        <div class="alert alert-success" role="alert">
+        <p class="text-center"> <strong>Success:</strong> {{ message }}
+        </div>
+        {% endfor %}
+    <!--    </ul> -->
+    {% endif %} {% endwith %}
+    <!--Alert for a error-->
+    {% if error %}
+        <div class="alert alert-danger" role="alert">
+        <p class="text-center"><strong>Error:</strong> {{ error }}
+        </div>
+    {% endif %}
+    <body>
+        {% block content%}
+
+        {% endblock %} 
+    </body>
+</html>
